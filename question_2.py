@@ -17,6 +17,17 @@ def display_shopping_list():
             print(items, end=", ")
     print("\n")
 
+def remove_items():
+    global shopping_list
+    display_shopping_list()
+    item_remove = input("Enter the item you want to remove: ")
+    if item_remove in shopping_list:
+        shopping_list.remove(item_remove)
+        print(f"'{item_remove}' removed successfully")
+    else:
+        print("Error: Please enter an item on the list")
+        
+
 
 while True:
     action = input("Choose an action: [A]dd an item, [D]isplay items, [R]emove item, [Q]uit: ").upper()
@@ -28,9 +39,7 @@ while True:
         
     #question 2 taks 2
     elif action == 'R':
-        item_remove = input("Enter the item you want to remove: ")
-        if item_remove in shopping_list:
-            shopping_list.remove(item_remove)
+        remove_items()
     elif action == 'Q':
         break
     else:
